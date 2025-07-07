@@ -57,6 +57,7 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label3 = New System.Windows.Forms.Label()
         Me.hidden = New System.Windows.Forms.Label()
+        Me.Export_Button = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -459,6 +460,21 @@ Partial Class Form1
         Me.hidden.TabIndex = 16
         Me.hidden.Text = "db4free.net"
         '
+        'Export_Button
+        '
+        Me.Export_Button.BackColor = System.Drawing.Color.Black
+        Me.Export_Button.FlatAppearance.BorderSize = 0
+        Me.Export_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Export_Button.Font = New System.Drawing.Font("Yu Gothic UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Export_Button.ForeColor = System.Drawing.Color.White
+        Me.Export_Button.Location = New System.Drawing.Point(37, 512)
+        Me.Export_Button.Name = "Export_Button"
+        Me.Export_Button.Size = New System.Drawing.Size(175, 56)
+        Me.Export_Button.TabIndex = 17
+        Me.Export_Button.Text = "EXPORT"
+        Me.Export_Button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Export_Button.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.ApplyImageInvert = True
@@ -470,6 +486,7 @@ Partial Class Form1
         Me.BackLocation = MetroFramework.Forms.BackLocation.BottomRight
         Me.BackMaxSize = 1321
         Me.ClientSize = New System.Drawing.Size(1342, 837)
+        Me.Controls.Add(Me.Export_Button)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Label2)
@@ -537,5 +554,5 @@ Partial Class Form1
     Friend WithEvents Button11 As System.Windows.Forms.Button
     Friend WithEvents Button10 As System.Windows.Forms.Button
     Friend WithEvents Button9 As System.Windows.Forms.Button
-
+    Friend WithEvents Export_Button As Button
 End Class
