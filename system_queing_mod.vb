@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 Module system_queing_mod
     'Dim con As New MySqlConnection("server=" & Form1.hidden.Text & ";port=3306;userid=tqm_queuing;password=@tqm_queuing;database=tqm_queuing;connection timeout=10000000;pooling=true;old guids=true;")
     'Dim con As New MySqlConnection("server=172.0.0.22;port=32775;userid=dev;password=root;database=tqm_queuing;connection timeout=10000000;")
-    Dim con As New MySqlConnection("server=localhost;port=3306;userid=root;password=root;database=tqm_queuing;connection timeout=10000000;")
+    Dim con As New MySqlConnection("server=localhost;port=3306;userid=root;password=@ngelo123;database=tqm_queuing;connection timeout=10000000;")
     Dim com As New MySqlCommand
     Dim dr As MySqlDataReader
 
@@ -49,17 +49,17 @@ Module system_queing_mod
     End Sub
 
     Sub insert_into_tb_tickets_lto()
-        com.CommandText = "insert into " & Form1.Label3.Text & ".tb_tickets(vehicletype,tickernumber,datenow,timenow,cust_name)values('" & "(L.T.O)" & "', '" & f_lto_ticket.TextBox1.Text & "', '" & f_ticketing.Label3.Text & "', '" & f_ticketing.Label4.Text & "' , '" & f_lto_ticket.txtBox_cust_name.Text & "');"
+        com.CommandText = "insert into " & Form1.Label3.Text & ".tb_tickets(vehicletype,tickernumber,datenow,timenow,cust_name,plate_no)values('" & "(L.T.O)" & "', '" & f_lto_ticket.TextBox1.Text & "', '" & f_ticketing.Label3.Text & "', '" & f_ticketing.Label4.Text & "' , '" & f_lto_ticket.txtBox_cust_name.Text & "' , '" & f_lto_ticket.txtBox_plate_no.Text & "');"
         closereader()
     End Sub
 
     Sub insert_into_tb_tickets_light_vehicle()
-        com.CommandText = "insert into " & Form1.Label3.Text & ".tb_tickets(vehicletype,tickernumber,datenow,timenow,cust_name)values('" & "(L.V.) LIGHT VEHICLE" & "', '" & f_light_vehiclevb.TextBox1.Text & "', '" & f_ticketing.Label3.Text & "', '" & f_ticketing.Label4.Text & "', '" & f_light_vehiclevb.txtBox_cust_name.Text & "');"
+        com.CommandText = "insert into " & Form1.Label3.Text & ".tb_tickets(vehicletype,tickernumber,datenow,timenow,cust_name,plate_no)values('" & "(L.V.) LIGHT VEHICLE" & "', '" & f_light_vehiclevb.TextBox1.Text & "', '" & f_ticketing.Label3.Text & "', '" & f_ticketing.Label4.Text & "', '" & f_light_vehiclevb.txtBox_cust_name.Text & "', '" & f_light_vehiclevb.txtBox_plate_no.Text & "');"
         closereader()
     End Sub
 
     Sub insert_into_tb_tickets_motorcycle()
-        com.CommandText = "insert into " & Form1.Label3.Text & ".tb_tickets(vehicletype,tickernumber,datenow,timenow,cust_name)values('" & "(M.C.) MOTORCYCLE" & "', '" & f_motocycle.TextBox1.Text & "', '" & f_ticketing.Label3.Text & "', '" & f_ticketing.Label4.Text & "', '" & f_motocycle.txtBox_cust_name.Text & "');"
+        com.CommandText = "insert into " & Form1.Label3.Text & ".tb_tickets(vehicletype,tickernumber,datenow,timenow,cust_name,plate_no)values('" & "(M.C.) MOTORCYCLE" & "', '" & f_motocycle.TextBox1.Text & "', '" & f_ticketing.Label3.Text & "', '" & f_ticketing.Label4.Text & "', '" & f_motocycle.txtBox_cust_name.Text & "', '" & f_motocycle.txtBox_plate_no.Text & "');"
         closereader()
     End Sub
     Sub alter_tb_lto_tickets()
