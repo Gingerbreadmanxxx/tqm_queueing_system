@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.Remoting.Channels
+Imports DocumentFormat.OpenXml.Office2010.ExcelAc
 Imports MySql.Data.MySqlClient
 Module system_queing_mod
     'Dim con As New MySqlConnection("server=" & Form1.hidden.Text & ";port=3306;userid=tqm_queuing;password=@tqm_queuing;database=tqm_queuing;connection timeout=10000000;pooling=true;old guids=true;")
@@ -164,6 +165,27 @@ Module system_queing_mod
                 f_queing.Button6.Text = dr.Item(2).ToString
             End If
         End While
+        dr.Close()
+    End Sub
+
+    Sub LoadMotorcycleTickets()
+        'f_export_tickets.LVList.Items.Clear()
+
+        com.CommandText = "SELECT * FROM " & Form1.Label3.Text & ".tb_motorcycle_tickets ORDER BY id DESC;"
+        dr = com.ExecuteReader
+
+        While dr.Read
+            Dim ticket As New ListViewItem(dr.Item(0).ToString) ' First column as main item
+
+            For i As Integer = 1 To dr.FieldCount - 1
+                Dim value As String = dr.Item(i).ToString()
+
+            Next
+
+            ticket.UseItemStyleForSubItems = False
+
+        End While
+
         dr.Close()
     End Sub
 

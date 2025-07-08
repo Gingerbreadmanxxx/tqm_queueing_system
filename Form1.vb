@@ -1,4 +1,8 @@
-﻿Public Class Form1
+﻿Imports ClosedXML.Excel
+Imports DocumentFormat.OpenXml.Office2016
+Imports Org.BouncyCastle.Tls
+
+Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ControlBox = False
@@ -20,6 +24,8 @@
         reload_users()
         reload_users_CONFIRMED()
         reload_users_NOTCONFIRMED()
+        LoadMotorcycleTickets()
+
         Try
             'insert_into_tb_users()
             'insert_into_tb_users2()
@@ -39,6 +45,21 @@
             GroupBox1.Visible = False
             f_users.MdiParent = Me
             f_users.Show()
+        Else
+            MsgBox("Sorry! Please ask permission the admin first", vbExclamation, "Invalid Action")
+        End If
+    End Sub
+
+    Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles Export_Button.Click
+        If ToolStripStatusLabel2.Text = "ADMIN" Then
+            IsMdiContainer = True
+            For Each ChildForm As Form In Me.MdiChildren
+                ChildForm.Close()
+            Next
+            GroupBox1.Visible = False
+            f_export_tickets.MdiParent = Me
+            f_export_tickets.Show()
+
         Else
             MsgBox("Sorry! Please ask permission the admin first", vbExclamation, "Invalid Action")
         End If
@@ -80,7 +101,7 @@
         Next
     End Sub
 
- 
+
 
     Private Sub Button4_MouseEnter(sender As Object, e As EventArgs) Handles Button4.MouseEnter
         Button4.BackColor = Color.DarkRed
@@ -212,4 +233,5 @@
     Private Sub Button13_MouseLeave(sender As Object, e As EventArgs) Handles Button13.MouseLeave
         Button13.BackColor = Color.Black
     End Sub
+
 End Class
